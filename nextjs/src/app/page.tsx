@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "@/components/logo";
 import { getSiteSettings } from "@/lib/sanity";
 
 export default async function Home() {
@@ -7,11 +8,9 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
       <div className="max-w-3xl bg-retro-blue/70 backdrop-blur-md p-8 rounded-xl shadow-xl">
-        <h1 className="text-5xl md:text-6xl font-bold text-retro-yellow mb-6">
-          70 & Sunny Coffee Co.
-        </h1>
+        <Logo className="text-retro-yellow" />
 
-        <div className="mb-8">
+        <div className="m-8">
           <p className="text-xl md:text-2xl text-retro-yellow">
             {siteSettings.comingSoonMessage}
           </p>
