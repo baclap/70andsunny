@@ -2,7 +2,6 @@ import React from "react";
 import { getSiteSettings } from "@/lib/sanity";
 
 export default async function Home() {
-  // Fetch data from Sanity
   const siteSettings = await getSiteSettings();
 
   return (
