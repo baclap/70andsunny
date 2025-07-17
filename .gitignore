@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+.vercel
+.next
+.sanity
+dist
+logs
+next-env.d.ts
+.env*
+npm-debug.log*
+*.pem
+*.log
+*.tsbuildinfo
+*.local
