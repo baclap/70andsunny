@@ -4,7 +4,7 @@ import "./globals.css";
 import { getSeoData } from "@/lib/sanity";
 
 const businessName = "70 & Sunny Coffee Co.";
-const businessUrl = "https://www.70andsunny.com";
+const businessUrl = "https://70andsunnycoffee.co";
 const businessAddress = {
   streetAddress: "2821 Alaskan Way",
   addressLocality: "Seattle",
