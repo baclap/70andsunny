@@ -1,10 +1,17 @@
 import { createClient } from "@sanity/client";
 import groq from "groq";
+import {
+  SANITY_API_VERSION,
+  COMING_SOON_MESSAGE,
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  BUSINESS_INFO,
+} from "./constants";
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: "2023-05-03", // Use the latest API version
+  apiVersion: SANITY_API_VERSION, // Use the latest API version
   useCdn: true, // Use the Content Delivery Network for faster responses
 });
 
@@ -22,7 +29,7 @@ export async function getSiteSettings() {
     console.error("Error fetching site settings:", error);
     // Return fallback data if fetch fails
     return {
-      comingSoonMessage: "70 & Sunny Coffee Co. is brewing something special!",
+      comingSoonMessage: COMING_SOON_MESSAGE,
       expectedOpenDate: null,
     };
   }
@@ -36,13 +43,9 @@ export async function getSeoData() {
     console.error("Error fetching SEO data:", error);
     // Return fallback data if fetch fails
     return {
-      title: "70 & Sunny Coffee Co. – Coming Soon",
-      description: "70 & Sunny Coffee Co. is a new coffee shop coming soon to Seattle's historic Pier 70 on the Elliott Bay waterfront, steps from Olympic Sculpture Park.",
-      businessInfo: {
-        openingHours: "Coming Soon",
-        servesCuisine: "Coffee, Tea, Pastries",
-        priceRange: "$"
-      }
+      title: SITE_TITLE,
+      description: SITE_DESCRIPTION,
+      businessInfo: BUSINESS_INFO,
     };
   }
 }

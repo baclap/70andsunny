@@ -1,11 +1,12 @@
 import React from "react";
+import { BUSINESS_NAME } from "@/lib/constants";
 
 export default function Logo(props: { className?: string }) {
   return (
     <svg
       className={props.className}
       role="img"
-      aria-label="70 & Sunny Coffee Co."
+      aria-label={BUSINESS_NAME}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 239.52 129.25"
     >

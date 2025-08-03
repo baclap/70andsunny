@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "@/components/logo";
+import SocialLinks from "@/components/social-links";
 import { getSiteSettings } from "@/lib/sanity";
 
 export default async function Home() {
@@ -22,6 +23,8 @@ export default async function Home() {
             </p>
           )}
         </div>
+
+        <SocialLinks />
       </div>
     </main>
   );

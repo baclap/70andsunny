@@ -2,40 +2,36 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { getSeoData } from "@/lib/sanity";
+import {
+  BUSINESS_NAME,
+  BUSINESS_URL,
+  BUSINESS_ADDRESS,
+  BUSINESS_INFO,
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  INSTAGRAM_URL,
+} from "@/lib/constants";
 
-const businessName = "70 & Sunny Coffee Co.";
-const businessUrl = "https://70andsunnycoffee.co";
-const businessAddress = {
-  streetAddress: "2821 Alaskan Way",
-  addressLocality: "Seattle",
-  addressRegion: "WA",
-  postalCode: "98121",
-  addressCountry: "US",
-};
 // TODO: add hard coded image
 // const socialImageUrl = "/images/...";
 // const socialImageWidth = 1200;
 // const socialImageHeight = 630;
 
-const titleFallback = "70 & Sunny Coffee Co. – Coming Soon";
-const descriptionFallback =
-  "70 & Sunny Coffee Co. is a new coffee shop coming soon to Seattle's historic Pier 70 on the Elliott Bay waterfront, steps from Olympic Sculpture Park.";
-
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await getSeoData();
 
-  const title = seoData?.title || titleFallback;
-  const description = seoData?.description || descriptionFallback;
+  const title = seoData?.title || SITE_TITLE;
+  const description = seoData?.description || SITE_DESCRIPTION;
 
   return {
     title: title,
     description: description,
-    metadataBase: new URL(businessUrl),
+    metadataBase: new URL(BUSINESS_URL),
     openGraph: {
       type: "website",
       locale: "en_US",
       url: "/",
-      siteName: businessName,
+      siteName: BUSINESS_NAME,
       title: title,
       description: description,
       // TODO: add hard coded image
@@ -44,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       //     url: socialImageUrl,
       //     width: socialImageWidth,
       //     height: socialImageHeight,
-      //     alt: businessName,
+      //     alt: BUSINESS_NAME,
       //   },
       // ],
     },
@@ -65,21 +61,23 @@ export default async function RootLayout({
 }>) {
   const seoData = await getSeoData();
 
-  const description = seoData?.description || descriptionFallback;
+  const description = seoData?.description || SITE_DESCRIPTION;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: businessName,
+    name: BUSINESS_NAME,
     description: description,
-    url: businessUrl,
+    url: BUSINESS_URL,
+    sameAs: [INSTAGRAM_URL],
     address: {
       "@type": "PostalAddress",
-      ...businessAddress,
+      ...BUSINESS_ADDRESS,
     },
-    openingHours: seoData?.businessInfo?.openingHours || "Coming Soon",
+    openingHours:
+      seoData?.businessInfo?.openingHours || BUSINESS_INFO.openingHours,
     servesCuisine:
-      seoData?.businessInfo?.servesCuisine || "Coffee, Tea, Pastries",
-    priceRange: seoData?.businessInfo?.priceRange || "$",
+      seoData?.businessInfo?.servesCuisine || BUSINESS_INFO.servesCuisine,
+    priceRange: seoData?.businessInfo?.priceRange || BUSINESS_INFO.priceRange,
   };
 
   return (
