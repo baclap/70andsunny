@@ -1,11 +1,10 @@
-import React from "react";
 import Logo from "@/components/logo";
 import SocialLinks from "@/components/social-links";
 import GoogleMap from "@/components/google-map";
-import { getSiteSettings } from "@/lib/sanity";
+import { SITE } from "@/lib/site";
 
-export default async function Home() {
-  const siteSettings = await getSiteSettings();
+export default function Home() {
+  const home = SITE.home;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
@@ -14,13 +13,13 @@ export default async function Home() {
 
         <div className="m-8">
           <p className="text-xl md:text-2xl text-retro-yellow">
-            {siteSettings.comingSoonMessage}
+            {home.comingSoonMessage}
           </p>
 
-          {siteSettings.expectedOpenDate && (
+          {home.expectedOpenDate && (
             <p className="mt-4 text-lg text-retro-yellow">
               Expected opening:{" "}
-              {new Date(siteSettings.expectedOpenDate).toLocaleDateString()}
+              {new Date(home.expectedOpenDate).toLocaleDateString()}
             </p>
           )}
         </div>

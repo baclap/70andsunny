@@ -1,5 +1,10 @@
-# 70 AND Sunny
+# 70 & Sunny Coffee Co. Marketing Website
 
-This repo contains the Next.js marketing website for 70 & Sunny Coffee Co. as well as the Sanity CMS for managing content. Both the website and CMS UI are deployed on Vercel from different domains.
+A marketing website for 70 & Sunny Coffee Co. built with Next.js and Tailwind CSS.
 
-**NOTE:** There is a webhook that was manually configured in the Sanity account settings dashboard that triggers a deployment of the website on Vercel when content is updated in the CMS.
+Site copy and SEO content now live directly in code under `src/lib/site-content.ts`.
+This keeps the public site simple and avoids a separate CMS dependency.
+
+```bash
+npm run dev
+```

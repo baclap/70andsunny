@@ -1,7 +1,5 @@
-/* globals.css */
 @import "tailwindcss";
 
-/* Define your retro theme colors as CSS variables under --color-* */
 @theme {
     --color-retro-yellow: #eaa713;
     --color-retro-blue: #1b86b5;
@@ -14,7 +12,6 @@
     --color-retro-turquoise: #36c5cb;
 }
 
-/* Your existing CSS (colors, animations, etc.) */
 :root {
     --background: #ffffff;
     --foreground: #171717;
