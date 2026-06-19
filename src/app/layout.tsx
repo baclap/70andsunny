@@ -1,7 +1,50 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { SITE } from "@/lib/site";
+
+const bodyTypeface = localFont({
+  src: [
+    {
+      path: "./fonts/body-regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/body-bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--type-body",
+  display: "swap",
+  fallback: [
+    "ui-sans-serif",
+    "system-ui",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Segoe UI",
+    "sans-serif",
+  ],
+  adjustFontFallback: "Arial",
+});
+
+const displayTypeface = localFont({
+  src: "./fonts/display.ttf",
+  variable: "--type-display",
+  display: "swap",
+  fallback: [
+    "ui-rounded",
+    "ui-sans-serif",
+    "system-ui",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Segoe UI",
+    "sans-serif",
+  ],
+  adjustFontFallback: "Arial",
+});
 
 export const metadata: Metadata = {
   title: SITE.seo.title,
@@ -46,7 +89,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${bodyTypeface.variable} ${displayTypeface.variable}`}
+    >
       <head>
         <Script
           id="json-ld"
