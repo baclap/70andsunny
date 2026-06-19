@@ -14,6 +14,9 @@ import {
 const SQUARE_VERSION = "2026-03-18";
 const PRODUCTION_API_URL = "https://connect.squareup.com";
 const SANDBOX_API_URL = "https://connect.squareupsandbox.com";
+const SQUARE_FETCH_TIMEOUT_MS = 8000;
+const SQUARE_MAX_CATALOG_PAGES = 20;
+const SQUARE_MAX_CATALOG_OBJECTS = 10000;
 
 let lastSuccessfulMenu: SiteMenu | null = null;
 
@@ -195,9 +198,17 @@ async function fetchSquareCatalog(config: {
   menuCategories: SquareMenuCategory[];
 }> {
   const objects: SquareCatalogObject[] = [];
+  const seenCursors = new Set<string>();
   let cursor: string | undefined;
+  let pageCount = 0;
 
   do {
+    if (pageCount >= SQUARE_MAX_CATALOG_PAGES) {
+      throw new Error("Square catalog pagination exceeded page limit");
+    }
+
+    pageCount += 1;
+
     const cursorParam = cursor ? `&cursor=${encodeURIComponent(cursor)}` : "";
     const payload = await getSquareJson<SquareCatalogListResponse>(
       `${config.apiBaseUrl}/v2/catalog/list?types=ITEM,CATEGORY,MODIFIER_LIST${cursorParam}`,
@@ -205,7 +216,22 @@ async function fetchSquareCatalog(config: {
     );
 
     objects.push(...(payload.objects ?? []));
-    cursor = payload.cursor || undefined;
+
+    if (objects.length > SQUARE_MAX_CATALOG_OBJECTS) {
+      throw new Error("Square catalog response exceeded object limit");
+    }
+
+    const nextCursor = payload.cursor || undefined;
+
+    if (nextCursor && seenCursors.has(nextCursor)) {
+      throw new Error("Square catalog pagination returned a repeated cursor");
+    }
+
+    if (nextCursor) {
+      seenCursors.add(nextCursor);
+    }
+
+    cursor = nextCursor;
   } while (cursor);
 
   return {
@@ -252,6 +278,7 @@ async function getSquareJson<TResponse>(
 ): Promise<TResponse> {
   const response = await fetch(url, {
     method: "GET",
+    signal: AbortSignal.timeout(SQUARE_FETCH_TIMEOUT_MS),
     headers: {
       Authorization: `Bearer ${accessToken}`,
       "Square-Version": SQUARE_VERSION,
