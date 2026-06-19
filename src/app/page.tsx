@@ -1,4 +1,5 @@
 import GoogleMap from "@/components/google-map";
+import Logo from "@/components/logo";
 import SiteMenu from "@/components/site-menu";
 import SunnyLogo from "@/components/sunny-logo";
 import { SITE } from "@/lib/site";
@@ -11,6 +12,7 @@ export default async function Home() {
   const menu = await getSiteMenu();
   const address = SITE.address;
   const mapsUrl = SITE.googleMapsUrl;
+  const copyrightYear = new Date().getFullYear();
 
   return (
     <main className="brand-page min-h-screen text-[var(--ink)]">
@@ -173,6 +175,35 @@ export default async function Home() {
             <SiteMenu menu={menu} />
           </div>
         </section>
+
+        <footer className="border-t-4 border-[var(--teal)] py-8 text-[var(--ink)]">
+          <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <Logo
+              className="h-auto w-[min(58vw,12rem)] text-[var(--teal)]"
+              aria-hidden="true"
+            />
+
+            <div className="space-y-3 text-center text-sm font-bold leading-6 text-[var(--muted)] sm:text-right">
+              <p className="text-[var(--ink)]">
+                Pier 70 | {address.addressLocality}, {address.addressRegion}
+              </p>
+              <p>
+                <a
+                  className="inline-flex items-center gap-1.5 text-[var(--orange)] decoration-[var(--orange)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--pink)] hover:underline"
+                  href={SITE.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Instagram
+                  <FaInstagram aria-hidden="true" className="size-[0.95em]" />
+                </a>
+              </p>
+              <p className="text-xs uppercase tracking-[0.18em]">
+                &copy; {copyrightYear} {SITE.businessName}
+              </p>
+            </div>
+          </div>
+        </footer>
       </div>
     </main>
   );

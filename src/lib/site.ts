@@ -15,10 +15,6 @@ export const SITE = {
     description:
       "70 & Sunny Coffee Co. is a new coffee shop located in Seattle’s historic Pier 70 Building on the Elliott Bay waterfront, steps from Olympic Sculpture Park.",
   },
-  home: {
-    comingSoonMessage: "Open for business in Seattle's historic Pier 70 Building",
-    expectedOpenDate: null as string | null,
-  },
   businessInfo: {
     hours: [
       { day: "Monday", hours: "7 AM-6 PM" },

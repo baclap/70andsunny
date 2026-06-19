@@ -9,7 +9,7 @@ const connectSources = [
 ];
 
 if (isDevelopment) {
-  scriptSources.push("'unsafe-eval'");
+  scriptSources.push("'unsafe-eval'", "https://va.vercel-scripts.com");
   connectSources.push(
     "http://localhost:*",
     "http://127.0.0.1:*",

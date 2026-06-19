@@ -1,17 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-    --color-retro-yellow: #eaa713;
-    --color-retro-blue: #1b86b5;
-    --color-retro-pink: #e71650;
-    --color-retro-orange: #f07713;
-    --color-retro-light: #efdbdb;
-    --color-retro-magenta: #f04a97;
-    --color-retro-bright-yellow: #f8cf34;
-    --color-retro-coral: #ec5124;
-    --color-retro-turquoise: #36c5cb;
-}
-
 :root {
     --background: #ffffff;
     --foreground: #170f0a;
@@ -20,16 +8,11 @@
     --gold: #eaa713;
     --blue: #1b86b5;
     --pink: #e71650;
-    --blush: #efdbdb;
     --teal: #36c5cb;
     --magenta: #f04a97;
     --orange: #f07713;
     --sun: #f8cf34;
-    --cream: #fff8ea;
     --soft: #fff2c8;
-    --coral: #ec5124;
-    --line: rgba(23, 15, 10, 0.18);
-    --line-strong: rgba(23, 15, 10, 0.34);
 }
 
 html {
@@ -69,10 +52,6 @@ a {
         "Segoe UI",
         sans-serif;
     font-weight: 700;
-}
-
-.text-balance {
-    text-wrap: balance;
 }
 
 .map-frame iframe {

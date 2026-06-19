@@ -1,11 +1,18 @@
 import { SITE } from "@/lib/site";
+import type { SVGProps } from "react";
 
-export default function Logo(props: { className?: string }) {
+export default function Logo({
+  title = SITE.businessName,
+  role,
+  ...props
+}: SVGProps<SVGSVGElement> & { title?: string }) {
+  const ariaLabel = props["aria-label"] ?? (props["aria-hidden"] ? undefined : title);
+
   return (
     <svg
-      className={props.className}
-      role="img"
-      aria-label={SITE.businessName}
+      {...props}
+      role={role ?? "img"}
+      aria-label={ariaLabel}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 239.51 129.23"
     >
