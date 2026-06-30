@@ -75,7 +75,7 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "CafeOrCoffeeShop",
     name: SITE.businessName,
     description: SITE.seo.description,
     url: SITE.businessUrl,
