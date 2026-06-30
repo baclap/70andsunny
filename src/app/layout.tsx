@@ -4,6 +4,10 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SITE } from "@/lib/site";
+import {
+  SUNNY_LOGO_SIZES,
+  SUNNY_LOGO_SRC_SET,
+} from "@/lib/logo-assets";
 
 const bodyTypeface = localFont({
   src: [
@@ -95,6 +99,14 @@ export default function RootLayout({
       className={`${bodyTypeface.variable} ${displayTypeface.variable}`}
     >
       <head>
+        <link
+          rel="preload"
+          as="image"
+          imageSrcSet={SUNNY_LOGO_SRC_SET}
+          imageSizes={SUNNY_LOGO_SIZES}
+          fetchPriority="high"
+          type="image/webp"
+        />
         <Script
           id="json-ld"
           type="application/ld+json"

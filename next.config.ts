@@ -85,6 +85,33 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: "/sunny-logo.640w.212513bd620a.webp",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/sunny-logo.512w.dd93dbbf4025.webp",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/sunny-logo.404w.03113da1649b.webp",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
     ];
   },
 };
