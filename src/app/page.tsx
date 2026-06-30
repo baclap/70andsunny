@@ -22,6 +22,8 @@ export default async function Home() {
             <SunnyLogo
               className="h-auto w-[min(56vw,16rem)] min-w-[8.75rem] max-w-[16rem] drop-shadow-[0.7rem_0.7rem_0_rgba(248,207,52,0.34)] sm:w-[min(34vw,21rem)] sm:max-w-[21rem]"
               aria-label={SITE.businessName}
+              fetchPriority="high"
+              priority
             />
             <p className="hidden max-w-[12rem] rotate-[-2deg] border-l-4 border-[var(--pink)] bg-white/70 py-2 pl-4 text-[0.7rem] font-black uppercase leading-[1.45] tracking-[0.24em] text-[var(--blue)] md:block">
               Pier 70
@@ -34,7 +36,7 @@ export default async function Home() {
             <ul className="space-y-1.5 text-right font-display text-[clamp(0.92rem,2.4vw,1.18rem)] leading-none tracking-[-0.01em] text-[var(--ink)]">
               <li>
                 <a
-                  className="text-[var(--blue)] decoration-[var(--sun)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--pink)] hover:underline"
+                  className="inline-flex min-h-6 items-center justify-end text-[var(--blue)] decoration-[var(--sun)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--pink)] hover:underline"
                   href="#hours"
                 >
                   Hours
@@ -42,7 +44,7 @@ export default async function Home() {
               </li>
               <li>
                 <a
-                  className="text-[var(--pink)] decoration-[var(--pink)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--orange)] hover:underline"
+                  className="inline-flex min-h-6 items-center justify-end text-[var(--pink)] decoration-[var(--pink)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--orange)] hover:underline"
                   href="#location"
                 >
                   Location
@@ -50,7 +52,7 @@ export default async function Home() {
               </li>
               <li>
                 <a
-                  className="text-[var(--teal)] decoration-[var(--teal)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--blue)] hover:underline"
+                  className="inline-flex min-h-6 items-center justify-end text-[var(--teal)] decoration-[var(--teal)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--blue)] hover:underline"
                   href="#menu"
                 >
                   Menu
@@ -58,7 +60,7 @@ export default async function Home() {
               </li>
               <li>
                 <a
-                  className="inline-flex items-center justify-end gap-1.5 text-[var(--orange)] decoration-[var(--orange)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--pink)] hover:underline"
+                  className="inline-flex min-h-6 items-center justify-end gap-1.5 text-[var(--orange)] decoration-[var(--orange)] decoration-4 underline-offset-4 transition-colors hover:text-[var(--pink)] hover:underline"
                   href={SITE.instagramUrl}
                   target="_blank"
                   rel="noreferrer"

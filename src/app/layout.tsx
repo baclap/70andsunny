@@ -8,12 +8,12 @@ import { SITE } from "@/lib/site";
 const bodyTypeface = localFont({
   src: [
     {
-      path: "./fonts/body-regular.ttf",
+      path: "./fonts/body-regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/body-bold.ttf",
+      path: "./fonts/body-bold.woff2",
       weight: "700",
       style: "normal",
     },
@@ -32,7 +32,7 @@ const bodyTypeface = localFont({
 });
 
 const displayTypeface = localFont({
-  src: "./fonts/display.ttf",
+  src: "./fonts/display.woff2",
   variable: "--type-display",
   display: "swap",
   fallback: [
