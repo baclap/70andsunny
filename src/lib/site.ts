@@ -4,7 +4,7 @@ export const SITE = {
   instagramUrl: "https://www.instagram.com/70andsunnycoffeeco/",
   googleMapsUrl: "https://www.google.com/maps?cid=17417265034152294788",
   address: {
-    streetAddress: "2821 Alaskan Way",
+    streetAddress: "2801 Alaskan Wy Unit 105",
     addressLocality: "Seattle",
     addressRegion: "WA",
     postalCode: "98121",
