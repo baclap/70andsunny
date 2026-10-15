@@ -31,3 +31,9 @@ Use `.env.example` as the shape reference. Do not expose any Square secret via
 npm test
 npm run build
 ```
+
+## Deployment
+
+A Git hook is configured to deploy the site when changes are pushed. Run the
+checks above, commit the changes, and push to deploy; no separate deployment
+command is needed.

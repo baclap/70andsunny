@@ -22,7 +22,7 @@ export const SITE = {
       { day: "Wednesday", hours: "7 AM-6 PM" },
       { day: "Thursday", hours: "7 AM-6 PM" },
       { day: "Friday", hours: "7 AM-6 PM" },
-      { day: "Saturday", hours: "6:30 AM-6 PM" },
+      { day: "Saturday", hours: "7 AM-6 PM" },
       { day: "Sunday", hours: "7 AM-5 PM" },
     ],
     openingHours: [
@@ -31,7 +31,7 @@ export const SITE = {
       "We 07:00-18:00",
       "Th 07:00-18:00",
       "Fr 07:00-18:00",
-      "Sa 06:30-18:00",
+      "Sa 07:00-18:00",
       "Su 07:00-17:00",
     ],
     servesCuisine: "Coffee, Tea, Pastries, Sandwiches",
